@@ -2,11 +2,7 @@ import { useState, useEffect } from "react";
 import BlogList from "./BlogList"
 
 const Home = () => {
-    const [blogs, setBlogs]=useState([
-        {title: 'Oh you say can you see', body: 'by the dawn of new light', author: 'gayboy', id: '1'},
-        {title: 'MARTHA', body: 'WHY DID YOU SAY THAT NAME', author: 'batboy', id: '2'},
-        {title: 'King Cringeson', body: 'Jojo is gay', author: 'straightboy', id: '3'}
-    ]);
+    const [blogs, setBlogs]=useState(null);
 
     const handleDelete = (blogid) =>{
         const temp=blogs.filter( (blog)=> blog.id!==blogid );
@@ -14,12 +10,21 @@ const Home = () => {
     }
 
     useEffect(()=>{
-        console.log("Use effect engaged");
+        fetch("http://localhost:8000/blogs")
+            .then(res => {
+                return res.json();
+            })
+            .then((data)=>{
+                console.log(data);
+                setBlogs(data);
+            })
     }, []);
 
     return ( 
         <div className="home">
-            <BlogList blogs={blogs} title="All posts" handleDelete={handleDelete}/>
+            {
+                blogs && <BlogList blogs={blogs} title="All posts" handleDelete={handleDelete}/>
+            }
         </div>
      );
 }
