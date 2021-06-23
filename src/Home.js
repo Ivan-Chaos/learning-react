@@ -8,8 +8,6 @@ const Home = () => {
         {title: 'King Cringeson', body: 'Jojo is gay', author: 'straightboy', id: '3'}
     ]);
 
-    const [name, setName]=useState("Maria");
-
     const handleDelete = (blogid) =>{
         const temp=blogs.filter( (blog)=> blog.id!==blogid );
         setBlogs(temp);
@@ -17,13 +15,11 @@ const Home = () => {
 
     useEffect(()=>{
         console.log("Use effect engaged");
-    }, [name]);
+    }, []);
 
     return ( 
         <div className="home">
             <BlogList blogs={blogs} title="All posts" handleDelete={handleDelete}/>
-            <button onClick={() => setName("Jonathan")}> ENGAGE </button>
-            <p>{name}</p>
         </div>
      );
 }

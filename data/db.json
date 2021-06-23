@@ -1,0 +1,22 @@
+{
+    "blogs": [
+        {
+            "title": "Oh you say can you see", 
+            "body": "by the dawn of new light",
+            "author": "gayboy", 
+            "id": 1
+        },
+        {
+            "title": "All hail J", 
+            "body": "Oh jay can you see",
+            "author": "alienboy", 
+            "id": 2
+        },
+        {
+            "title": "ROLLERCOASTER", 
+            "body": "muda muda muda muda muda muda",
+            "author": "strongboy", 
+            "id": 3
+        }
+    ]
+}
