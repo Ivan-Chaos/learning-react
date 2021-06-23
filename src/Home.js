@@ -8,9 +8,15 @@ const Home = () => {
         {title: 'King Cringeson', body: 'Jojo is gay', author: 'straightboy', id: '3'}
     ]);
 
+    const handleDelete = (blogid) =>{
+        const temp=blogs.filter( (blog)=> blog.id!==blogid );
+        setBlogs(temp);
+    }
+
     return ( 
         <div className="home">
-            <BlogList blogs={blogs} title="All posts"/>
+            <BlogList blogs={blogs} title="All posts" handleDelete={handleDelete}/>
+            <BlogList blogs={blogs.filter( (blog)=> blog.author==="batboy")} title="Batboys posts" handleDelete={handleDelete}/>
         </div>
      );
 }
